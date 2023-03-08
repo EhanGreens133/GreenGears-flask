@@ -5,9 +5,10 @@ import numpy as np
 from flask_caching import Cache
 import datetime
 import os
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)
 
 fastf1.Cache.enable_cache(os.environ['FASTF1_CACHE_DIR'])
 

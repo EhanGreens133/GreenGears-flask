@@ -9,6 +9,8 @@ RUN pip install flask
 RUN pip install fastf1
 RUN pip install flask_caching
 RUN pip install gunicorn
+RUN pip install flask-cors
+
 
 RUN mkdir -p /app/.fastf1/cache
 
