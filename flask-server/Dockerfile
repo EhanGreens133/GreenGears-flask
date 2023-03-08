@@ -19,7 +19,8 @@ COPY . .
 ENV FASTF1_CACHE_DIR /app/.fastf1/cache
 
 # CMD [ "python", "server.py" ]
-CMD ["gunicorn", "-b", "0.0.0.0:5000", "server:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "--timeout", "60", "server:app"]
+
 
 
 EXPOSE 5000
