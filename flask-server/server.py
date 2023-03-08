@@ -10,9 +10,18 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-fastf1.Cache.enable_cache(os.environ['FASTF1_CACHE_DIR'])
+
+app.config['CACHE_DIR'] = os.path.join(app.root_path, 'cache')
+fastf1.Cache.enable_cache(app.config['CACHE_DIR'])
 
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
+
+
+# app.config['CACHE_DIR'] = os.path.join(app.root_path, 'cache')
+
+# fastf1.Cache.enable_cache(os.environ['FASTF1_CACHE_DIR'])
+
+# cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 # cache_dir = 'C:/Users/ehan/Desktop/Learning/GreenGears-flask/flask-server/cache'
 # fastf1.Cache.enable_cache(cache_dir)
 # fastf1.Cache.enable_cache(
